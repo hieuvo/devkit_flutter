@@ -1,0 +1,87 @@
+import 'package:devkitflutter/ui/reusable/global_widget.dart';
+import 'package:flutter/material.dart';
+
+class ColoringContainerPage extends StatefulWidget {
+  const ColoringContainerPage({super.key});
+
+  @override
+  State<ColoringContainerPage> createState() => _ColoringContainerPageState();
+}
+
+class _ColoringContainerPageState extends State<ColoringContainerPage> {
+  // initialize global widget
+  final _globalWidget = GlobalWidget();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: _globalWidget.globalAppBar(),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(24, 24, 24, 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _globalWidget.createDetailWidget(
+                  title: 'Coloring on Container',
+                  desc: 'This is the example of coloring on container using different method'
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                // this is the start of example
+                child: Container(
+                  height: 40,
+                  color: Colors.pinkAccent,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                // this is the start of example
+                child: Container(
+                  height: 40,
+                  color: const Color(0xFF00AAFF)
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                // this is the start of example
+                child: Container(
+                  height: 40,
+                  color: Colors.green[400]
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                // this is the start of example
+                child: Container(
+                  height: 40,
+                  color: const Color.fromARGB(255, 204, 0, 255)
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                // this is the start of example
+                // if using decoration color for coloring container, don't use color field in container again
+                child: Container(
+                  height: 40,
+                  decoration: const BoxDecoration(
+                    color: Colors.red
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
+    );
+  }
+}
